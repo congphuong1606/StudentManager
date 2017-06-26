@@ -23,19 +23,21 @@ public class StudentAdapter extends ArrayAdapter<Student> {
     Context context;
     int mylayout;
     ArrayList<Student> students;
-   public  Boolean icheck=null;
+     boolean icheck =false;
+    boolean echeck=false;
 
-    public StudentAdapter(Context context, int mylayout, ArrayList<Student> students,Boolean icheck) {
-        super(context,mylayout,students);
+    public StudentAdapter(Context context, int mylayout, ArrayList<Student> students, boolean icheck,boolean echeck) {
+        super(context, mylayout, students);
         this.context = context;
         this.mylayout = mylayout;
         this.students = students;
-        this.icheck=icheck;
+        this.icheck = icheck;
+        this.echeck = echeck;
 
     }
 
     public StudentAdapter(Context context, int mylayout, ArrayList<Student> students) {
-        super(context,mylayout,students);
+        super(context, mylayout, students);
         this.context = context;
         this.mylayout = mylayout;
         this.students = students;
@@ -51,7 +53,7 @@ public class StudentAdapter extends ArrayAdapter<Student> {
             convertView = inflater.inflate(R.layout.student_row, parent, false);
             holder = new ViewHoder();
 
-            holder.ckStudent=(CheckBox) convertView.findViewById(R.id.chk_student);
+            holder.ckStudent = (CheckBox) convertView.findViewById(R.id.chk_student);
             holder.tv_name = (TextView) convertView.findViewById(R.id.tv_name);
             holder.tv_number = (TextView) convertView.findViewById(R.id.tv_number);
             holder.iv_avatar = (ImageView) convertView.findViewById(R.id.iv_image);
@@ -65,25 +67,28 @@ public class StudentAdapter extends ArrayAdapter<Student> {
         holder.tv_number.setText(String.valueOf(student.getNumber()));
 
 
-        try{
+        try {
             byte[] outImage = student.getImage();
             ByteArrayInputStream imageStream = new ByteArrayInputStream(outImage);
             Bitmap theImage = BitmapFactory.decodeStream(imageStream);
             holder.iv_avatar.setImageBitmap(theImage);
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
+        if (echeck){
+            holder.ckStudent.setChecked(true);
+        }else {
+            holder.ckStudent.setChecked(false);
+        }
 
-
-        if (icheck != null) {
             if (icheck) {
-                holder.ckStudent.setChecked(true);
-                holder.ckStudent.setVisibility(View.GONE);
-            } else {
-                holder.ckStudent.setChecked(false);
                 holder.ckStudent.setVisibility(View.VISIBLE);
+            } else {
+                holder.ckStudent.setVisibility(View.GONE);
             }
-        }
+
+
+
         holder.ckStudent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -104,9 +109,14 @@ public class StudentAdapter extends ArrayAdapter<Student> {
         return convertView;
     }
 
+
     static class ViewHoder {
         ImageView iv_avatar;
         CheckBox ckStudent;
         TextView tv_number, tv_name;
+    }
+
+    public Student getItemObject(int position) {
+        return students.get(position);
     }
 }

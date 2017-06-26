@@ -24,31 +24,50 @@
         <ImageButton
         android:layout_marginRight="10dp"
         android:id="@+id/ibtn_creat"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:background="@drawable/creat"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         />
         <ImageButton
             android:layout_marginRight="10dp"
-            android:id="@+id/ibtn_delete"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:id="@+id/ibtn_cancel"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:visibility="gone"
-            android:background="@drawable/delete"
+            android:background="@drawable/cancel"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
              />
 
     </RelativeLayout>
+    <RelativeLayout
 
-    <ListView
-        android:id="@+id/lv_students"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-       android:layout_margin="5dp">
+        android:layout_height="match_parent">
+        <ListView
 
-    </ListView>
+            android:id="@+id/lv_students"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp">
+
+        </ListView>
+        <ImageButton
+
+        android:id="@+id/ibtn_delete"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:background="@drawable/delete"
+        android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        />
+
+    </RelativeLayout>
+
+
 
 </LinearLayout>

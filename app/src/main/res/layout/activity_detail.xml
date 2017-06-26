@@ -12,7 +12,7 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:layout_weight="0.6">
 
         <ImageView
@@ -69,6 +69,7 @@
         >
 
         <LinearLayout
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -77,7 +78,7 @@
                 android:id="@+id/edt_name_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+android:textColor="@color/den"
                 android:gravity="center"
                 android:hint="Họ và tên"
                 android:textColorHint="@color/den" />
@@ -86,7 +87,7 @@
                 android:id="@+id/edt_number_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:textColor="@color/den"
                 android:gravity="center"
                 android:hint="số điện thoại"
                 android:textColorHint="@color/den" />
@@ -95,7 +96,7 @@
                 android:id="@+id/edt_address_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:textColor="@color/den"
                 android:gravity="center"
                 android:hint="địa chỉ"
                 android:textColorHint="@color/den" />

@@ -5,7 +5,7 @@ package studentmanager.android.vn.studentmanager;
  */
 
 public class Student {
-    boolean check=false;
+    Boolean check=false;
     private int id;
     private String name;
     private int number;
@@ -14,7 +14,7 @@ public class Student {
 
 
 
-    public Student(boolean check, int id, String name, int number, String address, byte[] image) {
+    public Student(Boolean check, int id, String name, int number, String address, byte[] image) {
         this.check = check;
         this.id = id;
         this.name = name;
@@ -23,11 +23,11 @@ public class Student {
         this.image = image;
     }
 
-    public boolean isCheck() {
+    public Boolean isCheck() {
         return check;
     }
 
-    public void setCheck(boolean check) {
+    public void setCheck(Boolean check) {
         this.check = check;
     }
 

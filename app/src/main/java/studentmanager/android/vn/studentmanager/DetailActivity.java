@@ -43,11 +43,24 @@ public class DetailActivity extends AppCompatActivity {
 
         students = new ArrayList<>();
         addControls();
+        status();
         initUI();
         addEvents();
+
+
+
+    }
+
+    private void status() {
+        edtNameUpdate.setEnabled(false);
         edtNameUpdate.setClickable(false);
+        edtNumberUpdate.setEnabled(false);
         edtNumberUpdate.setClickable(false);
+        edtAddressUpdate.setEnabled(false);
         edtAddressUpdate.setClickable(false);
+        btnSaveUpdate.setVisibility(View.GONE);
+        btnTakeImge.setVisibility(View.GONE);
+        btnGetImage.setVisibility(View.GONE);
     }
 
     private void addEvents() {
@@ -61,6 +74,22 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 choosePhoto();
+            }
+        });
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edtNameUpdate.setEnabled(true);
+                edtNameUpdate.setClickable(true);
+                edtNumberUpdate.setEnabled(true);
+                edtNumberUpdate.setClickable(true);
+                edtAddressUpdate.setEnabled(true);
+                edtAddressUpdate.setClickable(true);
+                btnSaveUpdate.setVisibility(View.VISIBLE);
+                btnTakeImge.setVisibility(View.VISIBLE);
+                btnGetImage.setVisibility(View.VISIBLE);
+                btnEdit.setVisibility(View.GONE);
+                btnDelete.setVisibility(View.GONE);
             }
         });
         btnSaveUpdate.setOnClickListener(new View.OnClickListener() {
